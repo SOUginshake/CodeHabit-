@@ -1,0 +1,60 @@
+{
+  "name": "codehabit",
+  "displayName": "CodeHabit",
+  "publisher": "SOUginshake",
+  "description": "開発を行うことで実績を達成し、自身の成長を可視化する機能",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "recentFiles",
+          "name": "Recent Files"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.getStatistics",
+        "title": "Get Statistics"
+      },
+      {
+        "command": "recentFiles.openFile",
+        "title": "Open File"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/cacheable-request": "^8.3.2",
+    "@types/diff": "^5.2.1",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.29.0",
+    "diff": "^5.2.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  }
+}
