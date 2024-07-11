@@ -7,9 +7,10 @@ import { LogFile } from "./logfile";
 
 export function activate(context: ExtensionContext) {
   /**
-   * ログファイル操作を行うクラスのインスタンス
+   * ログファイル操作を行うクラスのインスタンスとログファイルの生成
    */
   const logFile = new LogFile();
+  logFile.checkLogFile();
 
   /**
    * TreeViewで最近開いたファイルを表示する
