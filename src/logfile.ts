@@ -2,8 +2,26 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { homedir } from "os";
 import { diffLines } from "diff";
+import { window } from "vscode";
 
 export class LogFile {
+  /**
+   * ログファイルが存在するか確認し、存在しない場合は新規作成する
+   */
+  checkLogFile() {
+    const logDirPath = join(homedir(), ".config", "codehabit", "logs");
+
+    if (!existsSync(logDirPath)) {
+      mkdirSync(logDirPath, { recursive: true });
+    }
+
+    const logFilePath = join(logDirPath, "logfile.txt");
+    if (!existsSync(logFilePath)) {
+      writeFileSync(logFilePath, "", "utf-8");
+      window.showInformationMessage("ログファイルを新規作成しました");
+    }
+  }
+
   /**
    * ファイル操作をログファイルに書き込む
    * @param event
