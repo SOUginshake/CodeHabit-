@@ -8,7 +8,7 @@ export class LogFile {
   /**
    * ログファイルが存在するか確認し、存在しない場合は新規作成する
    */
-  checkLogFile() {
+  startupLogFile() {
     const logDirPath = join(homedir(), ".config", "codehabit", "logs");
 
     if (!existsSync(logDirPath)) {
@@ -19,6 +19,8 @@ export class LogFile {
     if (!existsSync(logFilePath)) {
       writeFileSync(logFilePath, "", "utf-8");
       window.showInformationMessage("ログファイルを新規作成しました");
+    } else {
+      window.showInformationMessage("ログファイルは既に存在しています");
     }
   }
 
