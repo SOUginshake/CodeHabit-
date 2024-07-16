@@ -10,7 +10,7 @@ export function activate(context: ExtensionContext) {
    * ログファイル操作を行うクラスのインスタンスとログファイルの生成
    */
   const logFile = new LogFile();
-  logFile.checkLogFile();
+  logFile.startupLogFile();
 
   /**
    * TreeViewで最近開いたファイルを表示する
